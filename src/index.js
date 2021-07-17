@@ -34,6 +34,7 @@ function searchCountry(e){
 
          else if (countries.length >= 2 && countries.length <= 10) {
             refs.countriesList.innerHTML = countryList(countries);
+            Notiflix.Notify.success('Success')
  
         }
 
