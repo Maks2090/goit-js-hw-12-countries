@@ -1,11 +1,11 @@
-import fetchCountries from'./fetchCountries';
+import fetchCountries from'./js/fetchCountries';
 import  debounce  from 'lodash.debounce';
 import countryCard from './templase/countryCard.hbs';
 import countryList from './templase/countryList.hbs';
 import Notiflix from "notiflix";
 import './css/styles.css';
 
-const DEBOUNCE_DELAY = 500;
+const DEBOUNCE_DELAY = 700;
 
 const refs ={
     countriesList : document.querySelector('.js-country-list'),
