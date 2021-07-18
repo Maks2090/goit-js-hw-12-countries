@@ -5,7 +5,7 @@ import countryList from './templase/countryList.hbs';
 import Notiflix from "notiflix";
 import './css/styles.css';
 
-const DEBOUNCE_DELAY = 700;
+const DEBOUNCE_DELAY = 500;
 
 const refs ={
     countriesList : document.querySelector('.js-country-list'),
@@ -21,9 +21,11 @@ function searchCountry(e){
   refs.countryInfo.innerHTML = '';
   refs.countriesList.innerHTML = '';
 
-    fetchCountries(e.target.value).then(countries => {
-       if(e.target.value === " ") { 
-            return 
+    fetchCountries(e.target.value.trim()).then(countries => {
+      
+       if(e.target.value.trim() === " ") { 
+        
+         return 
         }
 
      else if(countries.length === 1) {
@@ -34,7 +36,7 @@ function searchCountry(e){
 
          else if (countries.length >= 2 && countries.length <= 10) {
             refs.countriesList.innerHTML = countryList(countries);
-            Notiflix.Notify.success('Success')
+            
  
         }
 
@@ -42,9 +44,7 @@ function searchCountry(e){
             Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
         }
 
-        else if (countries.status === 404) {
-            Notiflix.Notify.failure('Oops, there is no country with that name') 
-        }
+       
     } ).catch(()=>{Notiflix.Notify.failure('Oops, there is no country with that name');})
     
  }
