@@ -21,13 +21,14 @@ function searchCountry(e){
   refs.countryInfo.innerHTML = '';
   refs.countriesList.innerHTML = '';
     if (e.inputType === 'deleteContentBackward' || e.inputType === 'deleteContentForward') {
+      
         return;
      }
 
     fetchCountries(e.target.value.trim()).then(countries => {
       
        if(e.target.value.trim() === " ") { 
-        Notiflix.Notify.success('Country')
+        
          return 
         }
 
